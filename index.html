@@ -1650,10 +1650,6 @@ async function submitForm(){
 
     if (!response.ok) {
       const statusMessage = response.status ? `HTTP ${response.status}` : '';
-      const fallbackNeeded = response.status === 404 || response.status === 500 || /<html/i.test(text) || text.includes('Cannot GET');
-      if (fallbackNeeded) {
-        throw new Error('Email API is unavailable. Switching to your email client.');
-      }
       throw new Error(data.error || data.message || `Unable to send message. Please try again later. (${statusMessage})`);
     }
 
