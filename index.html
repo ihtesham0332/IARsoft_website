@@ -448,74 +448,143 @@ section { padding: 100px 5%; }
 }
 .about-text .section-sub { max-width: 480px; margin-bottom: 2.5rem; }
 .about-features {
-  display: flex; flex-direction: column; gap: 1rem;
+  display: flex; flex-direction: column; gap: 1.2rem;
 }
 .about-feature {
-  display: flex; align-items: flex-start; gap: 1rem;
-  padding: 1.2rem;
-  border-radius: var(--radius-sm);
-  background: var(--cream);
-  border: 1px solid var(--border);
-  transition: var(--transition);
+  display: flex; align-items: flex-start; gap: 1.2rem;
+  padding: 1.4rem;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--cream) 0%, rgba(255,255,255,0.5) 100%);
+  border: 1.5px solid var(--border);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+  position: relative; overflow: hidden;
+}
+.about-feature::before {
+  content: '';
+  position: absolute; left: 0; top: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(139,26,92,0.05) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
 }
 .about-feature:hover {
   border-color: var(--magenta);
-  box-shadow: 0 8px 30px rgba(139,26,92,0.1);
-  transform: translateX(8px);
+  box-shadow: 0 12px 40px rgba(139,26,92,0.15);
+  transform: translateX(8px) translateY(-4px);
+  background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.6) 100%);
 }
+.about-feature:hover::before { opacity: 1; }
 .feature-icon {
-  width: 40px; height: 40px; flex-shrink: 0;
+  width: 48px; height: 48px; flex-shrink: 0;
   background: linear-gradient(135deg, var(--magenta), var(--rose));
-  border-radius: 10px;
+  border-radius: 12px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.1rem;
-  box-shadow: 0 4px 15px rgba(139,26,92,0.3);
+  font-size: 1.3rem;
+  box-shadow: 0 6px 20px rgba(139,26,92,0.35);
+  transition: all 0.4s ease;
+  position: relative;
 }
-.feature-text strong { display: block; font-weight: 600; color: var(--text); font-size: 0.9rem; }
-.feature-text span { font-size: 0.82rem; color: var(--text-light); }
+.about-feature:hover .feature-icon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 8px 28px rgba(139,26,92,0.45);
+}
+.feature-text strong { display: block; font-weight: 700; color: var(--text); font-size: 0.95rem; margin-bottom: 0.3rem; }
+.feature-text span { font-size: 0.85rem; color: var(--text-mid); line-height: 1.5; }
 .about-right {
   position: relative;
 }
 .stats-grid {
   display: grid; grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  gap: 1.8rem;
 }
 .stat-card {
   background: var(--cream);
-  border: 1px solid var(--border);
+  border: 1.5px solid var(--border);
   border-radius: var(--radius);
-  padding: 2rem;
+  padding: 2.2rem;
   text-align: center;
-  transition: var(--transition);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
   position: relative; overflow: hidden;
 }
 .stat-card::before {
   content: '';
   position: absolute; top: 0; left: 0; right: 0;
-  height: 3px;
+  height: 4px;
   background: linear-gradient(90deg, var(--magenta), var(--rose));
   transform: scaleX(0);
-  transition: transform 0.5s ease;
+  transform-origin: left;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.320, 1);
 }
-.stat-card:hover { box-shadow: var(--shadow); transform: translateY(-6px); }
+.stat-card::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at top right, rgba(139,26,92,0.05) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.stat-card:hover {
+  box-shadow: 0 16px 50px rgba(139,26,92,0.12);
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--magenta);
+}
 .stat-card:hover::before { transform: scaleX(1); }
-.stat-card:nth-child(2) { background: var(--magenta); color: white; }
-.stat-card:nth-child(2) .stat-num { color: white; }
-.stat-card:nth-child(2) .stat-label { color: rgba(255,255,255,0.7); }
+.stat-card:hover::after { opacity: 1; }
+.stat-card:nth-child(2) {
+  background: linear-gradient(135deg, var(--magenta) 0%, #a6225a 100%);
+  color: white;
+  border-color: rgba(255,255,255,0.2);
+  box-shadow: 0 8px 30px rgba(139,26,92,0.25);
+}
+.stat-card:nth-child(2):hover {
+  box-shadow: 0 16px 60px rgba(139,26,92,0.4);
+  transform: translateY(-10px) scale(1.03);
+}
+.stat-card:nth-child(2) .stat-num { color: white; font-weight: 900; }
+.stat-card:nth-child(2) .stat-label { color: rgba(255,255,255,0.85); font-weight: 500; }
 .stat-num {
   font-family: 'Playfair Display', serif;
-  font-size: 2.8rem; font-weight: 900;
-  color: var(--magenta); line-height: 1;
-  margin-bottom: 0.5rem;
+  font-size: clamp(2.2rem, 8vw, 3rem);
+  font-weight: 900;
+  color: var(--magenta);
+  line-height: 1;
+  margin-bottom: 0.7rem;
+  letter-spacing: -0.02em;
 }
-.stat-label { font-size: 0.82rem; color: var(--text-light); font-weight: 500; }
+.stat-label { font-size: 0.85rem; color: var(--text-light); font-weight: 500; letter-spacing: 0.3px; }
 .about-decoration {
-  position: absolute; bottom: -30px; right: -30px;
-  width: 150px; height: 150px;
-  border: 30px solid var(--lavender);
-  border-radius: 50%; opacity: 0.6;
+  position: absolute; bottom: -40px; right: -40px;
+  width: 180px; height: 180px;
+  border: 35px solid var(--lavender);
+  border-radius: 50%; opacity: 0.5;
   pointer-events: none;
+  animation: floatSlow 6s ease-in-out infinite;
+  transform: translateZ(0);
 }
+
+@keyframes floatSlow {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-15px, -15px) rotate(5deg); }
+}
+
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.about-feature {
+  animation: slideUpFade 0.8s ease-out forwards;
+}
+.about-feature:nth-child(1) { animation-delay: 0.1s; }
+.about-feature:nth-child(2) { animation-delay: 0.2s; }
+.about-feature:nth-child(3) { animation-delay: 0.3s; }
+
+.stat-card {
+  animation: slideUpFade 0.8s ease-out forwards;
+}
+.stat-card:nth-child(1) { animation-delay: 0.15s; }
+.stat-card:nth-child(2) { animation-delay: 0.25s; }
+.stat-card:nth-child(3) { animation-delay: 0.35s; }
+.stat-card:nth-child(4) { animation-delay: 0.45s; }
 
 /* ===== APPS ===== */
 #apps {
