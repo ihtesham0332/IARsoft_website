@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Privacy Policy - IARsoft</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+/* ===== ROOT VARIABLES ===== */
+:root {
+  --magenta: #8B1A5C;
+  --magenta-dark: #5e1040;
+  --magenta-light: #b8447e;
+  --rose: #d4638a;
+  --lavender: #f3e8ef;
+  --cream: #faf7f9;
+  --white: #ffffff;
+  --text: #1a0e15;
+  --text-mid: #5a3d50;
+  --text-light: #9e7a8d;
+  --border: rgba(139,26,92,0.12);
+  --shadow: 0 20px 60px rgba(139,26,92,0.12);
+  --shadow-lg: 0 40px 100px rgba(139,26,92,0.18);
+  --radius: 20px;
+  --radius-sm: 12px;
+  --transition: all 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* ===== RESET ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+ul { list-style: none; }
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--lavender); }
+::-webkit-scrollbar-thumb { background: var(--magenta); border-radius: 99px; }
+
+/* ===== NAV ===== */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 0 5%;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 72px;
+  background: rgba(250,247,249,0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: var(--transition);
+}
+nav.scrolled {
+  height: 60px;
+  box-shadow: 0 4px 30px rgba(139,26,92,0.08);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+}
+.logo-icon {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.logo-text {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--magenta);
+  letter-spacing: 2px;
+}
+.nav-links {
+  display: flex; gap: 2.5rem; align-items: center;
+}
+.nav-links a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: var(--text-mid);
+  position: relative;
+  transition: color 0.3s;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute; bottom: -4px; left: 0;
+  width: 0; height: 2px;
+  background: var(--magenta);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+.nav-links a:hover { color: var(--magenta); }
+.nav-links a:hover::after { width: 100%; }
+.nav-cta {
+  background: var(--magenta);
+  color: white !important;
+  padding: 10px 24px;
+  border-radius: 99px;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px;
+  transition: var(--transition) !important;
+  box-shadow: 0 4px 20px rgba(139,26,92,0.3);
+}
+.nav-cta::after { display: none !important; }
+.nav-cta:hover {
+  background: var(--magenta-dark) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(139,26,92,0.4) !important;
+}
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; padding: 5px; border: none; background: none;
+}
+.hamburger span {
+  width: 24px; height: 2px;
+  background: var(--magenta); border-radius: 2px;
+  transition: var(--transition);
+  display: block;
+}
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+.mobile-menu {
+  display: none;
+  position: fixed; top: 72px; left: 0; right: 0;
+  background: rgba(250,247,249,0.98);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 2rem 5%;
+  flex-direction: column; gap: 1.5rem;
+  z-index: 999;
+  animation: slideDown 0.35s ease;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-size: 1.1rem; font-weight: 500;
+  color: var(--text-mid);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.3s;
+}
+.mobile-menu a:hover { color: var(--magenta); }
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== SECTION SHARED ===== */
+section { padding: 100px 5%; }
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--magenta);
+  margin-bottom: 0.75rem;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+/* ===== PRIVACY POLICY ===== */
+#privacy {
+  background: var(--cream);
+  padding: 120px 5% 80px;
+}
+.privacy-content {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+.privacy-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.privacy-content p, .privacy-content ul {
+  color: var(--text-mid);
+  margin-bottom: 1.5rem;
+}
+.privacy-content ul {
+  padding-left: 1.5rem;
+}
+.privacy-content li {
+  margin-bottom: 0.5rem;
+}
+.privacy-content a {
+  color: var(--magenta);
+  text-decoration: underline;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--magenta-dark);
+  color: white;
+  padding: 4rem 5% 2rem;
+}
+.footer-top {
+  display: grid; grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem; margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.footer-brand .logo-text { color: white; font-size: 1.5rem; }
+.footer-tagline { font-size: 0.88rem; color: rgba(255,255,255,0.6); margin-top: 0.75rem; line-height: 1.7; max-width: 260px; }
+.footer-col-title {
+  font-weight: 700; font-size: 0.8rem;
+  text-transform: uppercase; letter-spacing: 1.5px;
+  color: rgba(255,255,255,0.5); margin-bottom: 1.2rem;
+}
+.footer-col-links { display: flex; flex-direction: column; gap: 0.75rem; }
+.footer-col-links a {
+  font-size: 0.88rem; color: rgba(255,255,255,0.7);
+  transition: color 0.3s;
+}
+.footer-col-links a:hover { color: white; }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1rem;
+}
+.footer-copy { font-size: 0.82rem; color: rgba(255,255,255,0.5); }
+.footer-social { display: flex; gap: 1rem; }
+.social-btn {
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; color: rgba(255,255,255,0.7);
+  transition: var(--transition); cursor: pointer;
+  text-decoration: none;
+}
+.social-btn:hover {
+  background: white; color: var(--magenta);
+  transform: translateY(-3px);
+}
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <div class="nav-logo">
+    <!-- <img src="LOGO.jpeg" alt="IARSOFT Logo" class="logo-icon"> -->
+    <span class="logo-text">IARSOFT</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#apps">Apps</a></li>
+    <li><a href="index.html#tech">Tech</a></li>
+    <li><a href="index.html#team">Team</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+  </ul>
+  <a href="index.html#contact" class="nav-cta">Get In Touch</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="index.html#about" onclick="closeMenu()">About</a>
+  <a href="index.html#apps" onclick="closeMenu()">Apps</a>
+  <a href="index.html#tech" onclick="closeMenu()">Technology</a>
+  <a href="index.html#team" onclick="closeMenu()">Our Team</a>
+  <a href="index.html#contact" onclick="closeMenu()">Contact</a>
+  <a href="privacy-policy.html" onclick="closeMenu()">Privacy Policy</a>
+</div>
+
+<section id="privacy">
+  <div class="section-label">Legal</div>
+  <h2 class="section-title">Privacy Policy</h2>
+  <div class="privacy-content">
+    <p><strong>Effective Date:</strong> April 19, 2026</p>
+    <p>At IARsoft, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile applications and website.</p>
+
+    <h3>Information We Collect</h3>
+    <p>We may collect the following types of information:</p>
+    <ul>
+      <li><strong>Personal Information:</strong> Name, email address, and contact details provided voluntarily.</li>
+      <li><strong>Usage Data:</strong> App usage statistics, device information, and crash reports to improve our services.</li>
+      <li><strong>Cookies:</strong> We use cookies to enhance user experience and analyze site traffic.</li>
+    </ul>
+
+    <h3>How We Use Your Information</h3>
+    <p>Your information is used to:</p>
+    <ul>
+      <li>Provide and maintain our apps and services.</li>
+      <li>Communicate with you about updates and support.</li>
+      <li>Analyze usage to improve functionality.</li>
+      <li>Comply with legal obligations.</li>
+    </ul>
+
+    <h3>Sharing Your Information</h3>
+    <p>We do not sell or rent your personal information. We may share data with:</p>
+    <ul>
+      <li>Service providers for app functionality (e.g., Firebase for backend services).</li>
+      <li>Legal authorities if required by law.</li>
+    </ul>
+
+    <h3>Your Rights</h3>
+    <p>You have the right to:</p>
+    <ul>
+      <li>Access, update, or delete your personal information.</li>
+      <li>Opt-out of marketing communications.</li>
+      <li>Request data portability.</li>
+    </ul>
+
+    <h3>Data Security</h3>
+    <p>We implement appropriate security measures to protect your data against unauthorized access, alteration, or disclosure.</p>
+
+    <h3>Children's Privacy</h3>
+    <p>Our apps are not intended for children under 13. We do not knowingly collect personal information from children.</p>
+
+    <h3>Changes to This Policy</h3>
+    <p>We may update this Privacy Policy periodically. Changes will be posted on this page with an updated effective date.</p>
+
+    <h3>Contact Us</h3>
+    <p>If you have questions about this Privacy Policy, please contact us at <a href="mailto:iarsoftofficial@gmail.com">iarsoftofficial@gmail.com</a>.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="nav-logo">
+        <div class="logo-icon" style="background:rgba(255,255,255,0.15)"></div>
+        <span class="logo-text">IARSOFT</span>
+      </div>
+      <p class="footer-tagline">A startup from Pakistan — building mobile apps that simplify everyday life through smart, clean, and privacy-first design.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Our Apps</div>
+      <div class="footer-col-links">
+        <a href="https://play.google.com/store/apps/details?id=com.iarsoft.muslim_pk" target="_blank">Muslim PK</a>
+        <a href="https://play.google.com/store/apps/details?id=com.iarsoft.zikr_pro" target="_blank">Zikr Pro</a>
+        <a href="https://play.google.com/store/apps/details?id=iarsoft.example.scannora" target="_blank">QR Scannora</a>
+        <a href="https://play.google.com/store/apps/details?id=com.iarsoft.fruit_lens" target="_blank">Fruit Lens</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <div class="footer-col-links">
+        <a href="index.html#about">About Us</a>
+        <a href="index.html#team">Our Team</a>
+        <a href="index.html#tech">Technology</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="mailto:iarsoftofficial@gmail.com">Email Us</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 IARsoft. All rights reserved. Built with ❤️ in Pakistan.</div>
+    <div class="footer-social">
+      <a class="social-btn" href="mailto:iarsoftofficial@gmail.com" title="Email">✉️</a>
+      <a class="social-btn" href="https://play.google.com/store/apps/developer?id=IARSOFT+Official" target="_blank" title="Play Store">▶</a>
+      <a class="social-btn" href="tel:+923310095555" title="WhatsApp">📱</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ===== NAV SCROLL =====
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// ===== MOBILE MENU =====
+function toggleMenu(){
+  const menu = document.getElementById('mobileMenu');
+  const ham = document.getElementById('hamburger');
+  menu.classList.toggle('open');
+  ham.classList.toggle('open');
+}
+function closeMenu(){
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+}
+</script>
+</body>
+</html>
