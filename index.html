@@ -1661,13 +1661,7 @@ async function submitForm(){
     document.getElementById('formSuccess').style.display = 'block';
     return;
   } catch(err) {
-    const shouldFallback = err.message.includes('Failed to fetch') || err.message.includes('Email API is unavailable') || err.message.includes('404') || err.message.includes('500');
-    if (shouldFallback) {
-      const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0ASubject: ${subject || 'No subject'}%0D%0A%0D%0A${encodeURIComponent(msg)}`;
-      window.location.href = `mailto:iarsoftofficial@gmail.com?subject=${encodeURIComponent(subject || 'Website Contact')}&body=${body}`;
-      return;
-    }
-    alert(err.message);
+    alert(err.message || 'Unable to send message right now. Please try again later.');
   } finally {
     button.disabled = false;
     button.textContent = 'Send Message →';
