@@ -84,19 +84,8 @@ nav.scrolled {
 }
 .logo-icon {
   width: 36px; height: 36px;
-  background: var(--magenta);
   border-radius: 10px;
-  display: flex; align-items: center; justify-content: center;
-  position: relative; overflow: hidden;
-}
-.logo-icon::before {
-  content: '';
-  position: absolute;
-  width: 70%; height: 2px;
-  background: white;
-  border-radius: 2px;
-  transform: rotate(-20deg) translateY(-4px);
-  box-shadow: 0 5px 0 white, 0 10px 0 rgba(255,255,255,0.5);
+  object-fit: cover;
 }
 .logo-text {
   font-family: 'Playfair Display', serif;
@@ -246,11 +235,11 @@ nav.scrolled {
 }
 .hero-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-size: clamp(2rem, 4.5vw, 3.6rem);
   font-weight: 900;
   line-height: 1.08;
   color: var(--text);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   animation: fadeUp 0.8s ease 0.1s both;
 }
 .hero-title span {
@@ -612,75 +601,145 @@ section { padding: 100px 5%; }
 
 /* ===== TECH ===== */
 #tech {
-  background: var(--magenta);
-  color: white;
+  background: white;
+  color: var(--text);
   text-align: center;
-  position: relative; overflow: hidden;
+  position: relative;
+  padding: 6rem 0 5rem;
+  overflow: hidden;
 }
 #tech::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(203,17,93,0.08), transparent 28%), radial-gradient(circle at 90% 20%, rgba(89,26,112,0.06), transparent 18%);
   pointer-events: none;
 }
-#tech .section-label { color: rgba(255,255,255,0.6); }
-#tech .section-title { color: white; margin-left: auto; margin-right: auto; }
-#tech .section-sub { color: rgba(255,255,255,0.75); margin: 0 auto 4rem; text-align: center; }
-.tech-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+#tech::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -120px;
+  width: 680px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(203,17,93,0.08), transparent 60%);
+  transform: translateX(-50%);
+  pointer-events: none;
 }
-.tech-card {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: var(--radius);
-  padding: 3rem 2rem;
+.tech-decor {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.45;
+}
+.tech-decor-1 {
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(139,26,92,0.24), transparent 58%);
+  top: 12%;
+  left: 5%;
+  animation: drift 10s ease-in-out infinite alternate;
+}
+.tech-decor-2 {
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(212,99,138,0.14), transparent 60%);
+  top: 8%;
+  right: 8%;
+  animation: drift 12s ease-in-out infinite alternate-reverse;
+}
+.tech-decor-3 {
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(232,209,221,0.9), transparent 72%);
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: drift 8s ease-in-out infinite;
+}
+#tech .section-label { color: var(--magenta); letter-spacing: 0.25em; text-transform: uppercase; }
+#tech .section-title { color: var(--text); margin-left: auto; margin-right: auto; font-size: clamp(2.4rem, 3vw, 3.2rem); line-height: 1.02; }
+#tech .section-sub { color: var(--text-mid); margin: 0 auto 3rem; text-align: center; max-width: 720px; }
+.tech-stack {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.6rem;
+  justify-items: center;
+  margin-top: 3rem;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+}
+.tech-item {
+  position: relative;
+  overflow: hidden;
+  width: 170px;
+  min-height: 190px;
+  border-radius: 36px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(245,236,245,0.92));
+  border: 1px solid rgba(139,26,92,0.14);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.95rem;
+  padding: 1.5rem;
   transition: var(--transition);
-  position: relative; overflow: hidden;
-  backdrop-filter: blur(10px);
+  box-shadow: 0 24px 60px rgba(139,26,92,0.08);
 }
-.tech-card::after {
+.tech-item:hover {
+  transform: translateY(-14px) scale(1.02);
+  box-shadow: 0 36px 90px rgba(139,26,92,0.18);
+  border-color: rgba(139,26,92,0.22);
+}
+.tech-item::before {
   content: '';
-  position: absolute; bottom: 0; left: 0; right: 0;
-  height: 3px;
-  background: rgba(255,255,255,0.3);
-  transform: scaleX(0);
-  transition: transform 0.4s ease;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(145deg, rgba(255,255,255,0.25), transparent 55%);
+  opacity: 0.6;
+  pointer-events: none;
 }
-.tech-card:hover {
-  background: rgba(255,255,255,0.14);
-  transform: translateY(-8px);
-  box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+.tech-item-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(243,227,236,0.96));
+  box-shadow: 0 18px 42px rgba(139,26,92,0.12);
+  font-size: 1.9rem;
+  color: var(--magenta);
+  position: relative;
+  z-index: 1;
+  animation: iconPulse 2.4s ease-in-out infinite alternate;
 }
-.tech-card:hover::after { transform: scaleX(1); }
-.tech-icon-wrap {
-  width: 72px; height: 72px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 20px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 2.2rem;
-  margin: 0 auto 1.5rem;
-  border: 1px solid rgba(255,255,255,0.2);
-  transition: var(--transition);
+.tech-item:hover .tech-item-icon {
+  transform: scale(1.08);
 }
-.tech-card:hover .tech-icon-wrap {
-  background: rgba(255,255,255,0.2);
-  transform: scale(1.1) rotate(-5deg);
+.tech-item-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.01em;
 }
-.tech-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.4rem; font-weight: 700;
-  color: white; margin-bottom: 0.75rem;
+.tech-item-sub {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  max-width: 150px;
 }
-.tech-desc { font-size: 0.88rem; color: rgba(255,255,255,0.7); line-height: 1.7; }
-.tech-pills { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; margin-top: 1.2rem; }
-.tech-pill {
-  padding: 4px 12px;
-  border-radius: 99px;
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.2);
-  font-size: 0.72rem; color: rgba(255,255,255,0.85);
-  font-weight: 600; letter-spacing: 0.3px;
+@keyframes iconPulse {
+  from { transform: translateY(0) scale(1); box-shadow: 0 18px 42px rgba(139,26,92,0.12); }
+  to { transform: translateY(-4px) scale(1.03); box-shadow: 0 24px 54px rgba(139,26,92,0.18); }
+}
+@keyframes drift {
+  from { transform: translateY(0); }
+  to { transform: translateY(-16px); }
 }
 
 /* ===== TEAM ===== */
@@ -704,12 +763,13 @@ section { padding: 100px 5%; }
   transition: var(--transition);
   position: relative; overflow: hidden;
 }
-.team-card::before {
+..team-card::before {
   content: '';
   position: absolute; inset: 0;
   background: linear-gradient(135deg, rgba(139,26,92,0.05) 0%, transparent 60%);
   opacity: 0;
   transition: opacity 0.4s;
+  pointer-events: none;
 }
 .team-card:hover {
   border-color: var(--magenta);
@@ -764,6 +824,27 @@ section { padding: 100px 5%; }
   color: var(--magenta);
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   border: 2px solid var(--lavender);
+}
+.team-links {
+  display: flex; justify-content: center; gap: 0.75rem;
+  margin-top: 1.4rem;
+}
+.team-link {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  padding: 0.72rem 1rem;
+  border-radius: 999px;
+  background: rgba(139,26,92,0.1);
+  color: var(--magenta);
+  font-size: 0.82rem;
+  font-weight: 700;
+  border: 1px solid transparent;
+  transition: var(--transition);
+}
+.team-link:hover {
+  background: white;
+  border-color: rgba(139,26,92,0.2);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 30px rgba(139,26,92,0.12);
 }
 
 /* ===== CONTACT ===== */
@@ -974,7 +1055,7 @@ footer {
 <!-- NAV -->
 <nav id="navbar">
   <div class="nav-logo">
-    <div class="logo-icon"></div>
+    <img src="LOGO.jpeg" alt="IARSOFT Logo" class="logo-icon">
     <span class="logo-text">IARSOFT</span>
   </div>
   <ul class="nav-links">
@@ -1005,8 +1086,8 @@ footer {
   <div class="hero-blob blob3"></div>
   <div class="hero-content">
     <div class="hero-badge">🇵🇰 Pakistani Startup · Est. 2025</div>
-    <h1 class="hero-title">We Build Apps<br>That <span>Matter</span></h1>
-    <p class="hero-sub">A passionate trio of developers crafting smart, clean, and purposeful mobile experiences — powered by Flutter, Python, and AI.</p>
+    <h1 class="hero-title">We Build the Best Apps<br>for the Best Experiences</h1>
+    <p class="hero-sub">From best ideas to best-delivered products: a focused team building refined mobile, AI, and backend solutions with Flutter, Python and cloud-native architecture.</p>
     <div class="hero-actions">
       <a href="#apps" class="btn-primary">Explore Our Apps <span>↓</span></a>
       <a href="#contact" class="btn-outline">Get In Touch →</a>
@@ -1210,39 +1291,72 @@ footer {
 
 <!-- TECH -->
 <section id="tech">
-  <div class="section-label reveal">Our Stack</div>
-  <h2 class="section-title reveal reveal-delay-1">Technologies We Use</h2>
-  <p class="section-sub reveal reveal-delay-2">We build with modern, proven tools that let us ship fast without compromising on quality or performance.</p>
-  <div class="tech-grid">
-    <div class="tech-card reveal reveal-delay-1">
-      <div class="tech-icon-wrap">🐦</div>
-      <div class="tech-name">Flutter</div>
-      <p class="tech-desc">Google's UI toolkit for building natively compiled, beautiful apps for mobile from a single codebase — fast, expressive, and flexible.</p>
-      <div class="tech-pills">
-        <span class="tech-pill">Dart</span>
-        <span class="tech-pill">Cross Platform</span>
-        <span class="tech-pill">Native Performance</span>
-      </div>
+  <div class="tech-decor tech-decor-1"></div>
+  <div class="tech-decor tech-decor-2"></div>
+  <div class="tech-decor tech-decor-3"></div>
+  <div class="section-label reveal">Technology Stack</div>
+  <h2 class="section-title reveal reveal-delay-1">Advanced technologies powering every product.</h2>
+  <p class="section-sub reveal reveal-delay-2">A refined technology ecosystem designed for agile product delivery, native experiences, AI augmentation, and scalable backend architecture.</p>
+  <div class="tech-stack">
+    <div class="tech-item reveal reveal-delay-1">
+      <div class="tech-item-icon">🎯</div>
+      <div class="tech-item-name">Flutter</div>
+      <div class="tech-item-sub">Cross-platform mobile UI</div>
     </div>
-    <div class="tech-card reveal reveal-delay-2">
-      <div class="tech-icon-wrap">🐍</div>
-      <div class="tech-name">Python</div>
-      <p class="tech-desc">The language of choice for powerful backend logic, scripting, data processing, and gluing together complex systems with clean, readable code.</p>
-      <div class="tech-pills">
-        <span class="tech-pill">Backend</span>
-        <span class="tech-pill">Data Processing</span>
-        <span class="tech-pill">Scripting</span>
-      </div>
+    <div class="tech-item reveal reveal-delay-2">
+      <div class="tech-item-icon">🐍</div>
+      <div class="tech-item-name">Python</div>
+      <div class="tech-item-sub">Backend & automation</div>
     </div>
-    <div class="tech-card reveal reveal-delay-3">
-      <div class="tech-icon-wrap">🧠</div>
-      <div class="tech-name">Artificial Intelligence</div>
-      <p class="tech-desc">We integrate machine learning and AI models to bring smart features to life — like Fruit Lens's instant fruit recognition powered by computer vision.</p>
-      <div class="tech-pills">
-        <span class="tech-pill">Computer Vision</span>
-        <span class="tech-pill">ML Models</span>
-        <span class="tech-pill">Smart Features</span>
-      </div>
+    <div class="tech-item reveal reveal-delay-3">
+      <div class="tech-item-icon">⚡</div>
+      <div class="tech-item-name">Firebase</div>
+      <div class="tech-item-sub">Realtime data & auth</div>
+    </div>
+    <div class="tech-item reveal reveal-delay-1">
+      <div class="tech-item-icon">🤖</div>
+      <div class="tech-item-name">AI Technology</div>
+      <div class="tech-item-sub">Intelligent features & automation</div>
+    </div>
+    <div class="tech-item reveal reveal-delay-2">
+      <div class="tech-item-icon">☁️</div>
+      <div class="tech-item-name">Supabase</div>
+      <div class="tech-item-sub">Open source backend</div>
+    </div>
+    <div class="tech-item reveal reveal-delay-3">
+      <div class="tech-item-icon">🎨</div>
+      <div class="tech-item-name">Figma</div>
+      <div class="tech-item-sub">Design & prototyping</div>
+    </div>
+    <div class="tech-item reveal reveal-delay-1">
+      <div class="tech-item-icon">🧪</div>
+      <div class="tech-item-name">Git</div>
+      <div class="tech-item-sub">Version control</div>
+    </div>
+    <div class="tech-item reveal reveal-delay-2">
+      <div class="tech-item-icon">💾</div>
+      <div class="tech-item-name">MongoDB</div>
+      <div class="tech-item-sub">Flexible data storage</div>
+    </div>
+    <div class="tech-item reveal reveal-delay-3">
+      <div class="tech-item-icon">🖌️</div>
+      <div class="tech-item-name">Illustrator</div>
+      <div class="tech-item-sub">Visual asset creation</div>
+    </div>
+    <div class="tech-item reveal reveal-delay-1">
+      <div class="tech-item-icon">☁️</div>
+      <div class="tech-item-name">REST API</div>
+      <div class="tech-item-sub">Scalable backend integration</div>
+    </div>
+    <div class="tech-item reveal reveal-delay-2">
+      <div class="tech-item-icon">🧩</div>
+      <div class="tech-item-name">CI/CD</div>
+      <div class="tech-item-sub">Automated delivery pipelines</div>
+    </div>
+    <div class="tech-item reveal reveal-delay-3">
+      <div class="tech-item-icon">🎯</div>
+      <div class="tech-item-name">UX Design</div>
+      <div class="tech-item-sub">User-first interface strategy</div>
     </div>
   </div>
 </section>
@@ -1251,7 +1365,7 @@ footer {
 <section id="team">
   <div class="section-label reveal">The People</div>
   <h2 class="section-title reveal reveal-delay-1">Meet the Founders</h2>
-  <p class="section-sub reveal reveal-delay-2">Three friends, one vision — building apps that make everyday life simpler, smarter, and more meaningful.</p>
+  <p class="section-sub reveal reveal-delay-2">Three founders, one mission: build intelligent apps with thoughtful UX, robust engineering, and privacy-first ambition.</p>
   <div class="team-grid">
     <div class="team-card reveal reveal-delay-1">
       <div class="team-avatar-wrap">
@@ -1260,8 +1374,11 @@ footer {
         <div class="team-initials-badge">01</div>
       </div>
       <div class="team-name">Muhammad Ihtesham Khan</div>
-      <div class="team-role">Co-Founder & Lead Developer</div>
-      <p class="team-bio">Leads app architecture, Flutter development, and project delivery. The driving force behind IARsoft's technical vision and quality standards.</p>
+      <div class="team-role">Co-Founder & Project Lead</div>
+      <p class="team-bio">Drives project delivery, AI strategy, and product management for IARsoft. Ensures the team stays aligned, the roadmap stays clear, and the app meets business goals.</p>
+      <div class="team-links">
+        <a href="https://www.linkedin.com/in/muhammad-ihtesham-khan-0332i/" target="_blank" class="team-link">🔗 LinkedIn</a>
+      </div>
     </div>
     <div class="team-card reveal reveal-delay-2">
       <div class="team-avatar-wrap">
@@ -1270,8 +1387,11 @@ footer {
         <div class="team-initials-badge">02</div>
       </div>
       <div class="team-name">Rashid Khan</div>
-      <div class="team-role">Co-Founder & Developer</div>
-      <p class="team-bio">Specializes in backend systems, Python development, and ensuring apps perform reliably at every layer — from logic to user experience.</p>
+      <div class="team-role">Co-Founder & Flutter Developer</div>
+      <p class="team-bio">Focuses on Flutter development, interface polish, and mobile performance to deliver a smooth, scalable app experience for users.</p>
+      <div class="team-links">
+        <a href="https://www.linkedin.com/in/rashid-khan-15a67b2ba/" target="_blank" class="team-link">🔗 LinkedIn</a>
+      </div>
     </div>
     <div class="team-card reveal reveal-delay-3">
       <div class="team-avatar-wrap">
@@ -1280,8 +1400,11 @@ footer {
         <div class="team-initials-badge">03</div>
       </div>
       <div class="team-name">Arif Khan</div>
-      <div class="team-role">Co-Founder & Developer</div>
-      <p class="team-bio">Drives AI integration and creative design decisions. Brings the intelligence layer to IARsoft's apps — including Fruit Lens's computer vision engine.</p>
+      <div class="team-role">Co-Founder & Flutter Lead</div>
+      <p class="team-bio">Leads Flutter development for the application, crafting intuitive interfaces and reliable mobile features with a user-first approach.</p>
+      <div class="team-links">
+        <a href="https://www.linkedin.com/in/itzarifdev/" target="_blank" class="team-link">🔗 LinkedIn</a>
+      </div>
     </div>
   </div>
 </section>
