@@ -53,6 +53,6 @@ module.exports = async (req, res) => {
     res.status(200).json({ message: 'Email sent successfully.' });
   } catch (error) {
     console.error('Email send failed:', error);
-    res.status(500).json({ error: 'Failed to send email. Please check server logs and SMTP settings.' });
+    res.status(500).json({ error: 'SMTP Error: ' + (error.message || 'Unknown error') });
   }
 };
