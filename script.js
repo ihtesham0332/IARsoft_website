@@ -73,19 +73,19 @@ async function submitForm(){
   button.textContent = 'Sending...';
 
   try {
-    const response = await fetch('https://formsubmit.co/ajax/iarsoftofficial@gmail.com', {
+    const response = await fetch('/api/send-email', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ name, email, _subject: subject || 'Website Contact', message: msg, _captcha: false })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, subject: subject || 'Website Contact', message: msg })
     });
     const data = await response.json();
-    if (!response.ok) throw new Error(data.error || data.message || 'Unable to send message right now.');
+    if (!response.ok) throw new Error(data.error || 'Unable to send message right now.');
     document.getElementById('contactForm').style.display = 'none';
     document.getElementById('formSuccess').style.display = 'block';
   } catch(err) {
     alert(err.message || 'Unable to send message right now.');
   } finally {
     button.disabled = false;
-    button.textContent = 'Send Message \u2192';
+    button.textContent = 'Send Message →';
   }
 }
