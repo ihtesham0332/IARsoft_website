@@ -3,37 +3,17 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Privacy Policy - IARsoft</title>
+<title>Our Team - IARsoft</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="styles.css"/>
-<style>
-#privacy {
-  background: var(--cream);
-  padding: 120px 5% 100px;
-}
-.privacy-content {
-  max-width: 800px;
-  margin: 0 auto;
-  line-height: 1.8;
-}
-.privacy-content h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--text);
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-}
-.privacy-content p, .privacy-content ul {
-  color: var(--text-mid);
-  margin-bottom: 1.5rem;
-}
-.privacy-content ul { padding-left: 1.5rem; }
-.privacy-content li { margin-bottom: 0.5rem; }
-</style>
 </head>
 <body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&uarr;</button>
 
 <nav id="navbar">
   <div class="nav-logo">
@@ -44,14 +24,13 @@
     <li><a href="about.html">About</a></li>
     <li><a href="apps.html">Google Play Store</a></li>
     <li><a href="tech.html">Tech</a></li>
-    <li><a href="team.html">Team</a></li>
+    <li><a href="team.html" class="active">Team</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </button>
 </nav>
-
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html" onclick="closeMenu()">Home</a>
   <a href="about.html" onclick="closeMenu()">About</a>
@@ -62,56 +41,50 @@
   <a href="privacy-policy.html" onclick="closeMenu()">Privacy Policy</a>
 </div>
 
-<section id="privacy">
-  <div class="section-label">Legal</div>
-  <h2 class="section-title">Privacy Policy</h2>
-  <div class="privacy-content">
-    <p><strong>Effective Date:</strong> April 19, 2026</p>
-    <p>At IARsoft, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile applications and website.</p>
-
-    <h3>Information We Collect</h3>
-    <p>We may collect the following types of information:</p>
-    <ul>
-      <li><strong>Personal Information:</strong> Name, email address, and contact details provided voluntarily.</li>
-      <li><strong>Usage Data:</strong> App usage statistics, device information, and crash reports to improve our services.</li>
-      <li><strong>Cookies:</strong> We use cookies to enhance user experience and analyze site traffic.</li>
-    </ul>
-
-    <h3>How We Use Your Information</h3>
-    <p>Your information is used to:</p>
-    <ul>
-      <li>Provide and maintain our apps and services.</li>
-      <li>Communicate with you about updates and support.</li>
-      <li>Analyze usage to improve functionality.</li>
-      <li>Comply with legal obligations.</li>
-    </ul>
-
-    <h3>Sharing Your Information</h3>
-    <p>We do not sell or rent your personal information. We may share data with:</p>
-    <ul>
-      <li>Service providers for app functionality (e.g., Firebase for backend services).</li>
-      <li>Legal authorities if required by law.</li>
-    </ul>
-
-    <h3>Your Rights</h3>
-    <p>You have the right to:</p>
-    <ul>
-      <li>Access, update, or delete your personal information.</li>
-      <li>Opt-out of marketing communications.</li>
-      <li>Request data portability.</li>
-    </ul>
-
-    <h3>Data Security</h3>
-    <p>We implement appropriate security measures to protect your data against unauthorized access, alteration, or disclosure.</p>
-
-    <h3>Children's Privacy</h3>
-    <p>Our apps are not intended for children under 13. We do not knowingly collect personal information from children.</p>
-
-    <h3>Changes to This Policy</h3>
-    <p>We may update this Privacy Policy periodically. Changes will be posted on this page with an updated effective date.</p>
-
-    <h3>Contact Us</h3>
-    <p>If you have questions about this Privacy Policy, please contact us at <a href="mailto:iarsoftofficial@gmail.com">iarsoftofficial@gmail.com</a>.</p>
+<section id="team" style="min-height:100vh;padding-top:120px;">
+  <div class="section-label reveal">The People</div>
+  <h2 class="section-title reveal reveal-delay-1">Meet the Founders</h2>
+  <p class="section-sub reveal reveal-delay-2">Three founders, one mission: build intelligent apps with thoughtful UX, robust engineering, and privacy-first ambition.</p>
+  <div class="team-grid">
+    <div class="team-card reveal reveal-delay-1">
+      <div class="team-avatar-wrap">
+        <img src="me.png" alt="Muhammad Ihtesham Khan" class="team-avatar-img" />
+        <div class="team-ring"></div>
+        <div class="team-initials-badge">01</div>
+      </div>
+      <div class="team-name">Muhammad Ihtesham Khan</div>
+      <div class="team-role">Co-Founder &amp; Project Lead</div>
+      <p class="team-bio">Drives project delivery, AI strategy, and product management for IARsoft. Ensures the team stays aligned, the roadmap stays clear, and the app meets business goals.</p>
+      <div class="team-links">
+        <a href="https://www.linkedin.com/in/muhammad-ihtesham-khan-0332i/" target="_blank" class="team-link">&#x1F517; LinkedIn</a>
+      </div>
+    </div>
+    <div class="team-card reveal reveal-delay-2">
+      <div class="team-avatar-wrap">
+        <img src="rashid copy.png" alt="Rashid Khan" class="team-avatar-img" style="object-position:center 30%;" />
+        <div class="team-ring" style="animation-direction:reverse;animation-duration:15s;"></div>
+        <div class="team-initials-badge">02</div>
+      </div>
+      <div class="team-name">Rashid Khan</div>
+      <div class="team-role">Co-Founder &amp; Flutter Developer</div>
+      <p class="team-bio">Focuses on Flutter development, interface polish, and mobile performance to deliver a smooth, scalable app experience for users.</p>
+      <div class="team-links">
+        <a href="https://www.linkedin.com/in/rashid-khan-15a67b2ba/" target="_blank" class="team-link">&#x1F517; LinkedIn</a>
+      </div>
+    </div>
+    <div class="team-card reveal reveal-delay-3">
+      <div class="team-avatar-wrap">
+        <img src="Gemini_Generated_Image_5o6v705o6v705o6v.png" alt="Arif Khan" class="team-avatar-img" style="object-position:center 30%;" />
+        <div class="team-ring" style="animation-duration:18s;"></div>
+        <div class="team-initials-badge">03</div>
+      </div>
+      <div class="team-name">Arif Khan</div>
+      <div class="team-role">Co-Founder &amp; Flutter Lead</div>
+      <p class="team-bio">Leads Flutter development for the application, crafting intuitive interfaces and reliable mobile features with a user-first approach.</p>
+      <div class="team-links">
+        <a href="https://www.linkedin.com/in/itzarifdev/" target="_blank" class="team-link">&#x1F517; LinkedIn</a>
+      </div>
+    </div>
   </div>
 </section>
 
