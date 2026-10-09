@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', () => {
+
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursorRing');
 let mx=0,my=0,rx=0,ry=0;
@@ -20,18 +22,18 @@ window.addEventListener('scroll', () => {
   if(backTop) backTop.classList.toggle('visible', window.scrollY > 400);
 });
 
-function toggleMenu(){
-  const menu = document.getElementById('mobileMenu');
-  const ham = document.getElementById('hamburger');
-  if(menu) menu.classList.toggle('open');
-  if(ham) ham.classList.toggle('open');
-}
-function closeMenu(){
-  const menu = document.getElementById('mobileMenu');
-  const ham = document.getElementById('hamburger');
-  if(menu) menu.classList.remove('open');
-  if(ham) ham.classList.remove('open');
-}
+document.getElementById('backTop')?.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+
+const ham = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+ham?.addEventListener('click', () => {
+  mobileMenu?.classList.toggle('open');
+  ham.classList.toggle('open');
+});
+mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  mobileMenu.classList.remove('open');
+  ham?.classList.remove('open');
+}));
 
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver(entries => {
@@ -58,7 +60,7 @@ const counterObserver = new IntersectionObserver(entries => {
 }, { threshold: 0.5 });
 counters.forEach(c => counterObserver.observe(c));
 
-async function submitForm(){
+document.getElementById('sendButton')?.addEventListener('click', async () => {
   const name = document.getElementById('fname').value.trim();
   const email = document.getElementById('femail').value.trim();
   const subject = document.getElementById('fsubject').value.trim();
@@ -88,4 +90,6 @@ async function submitForm(){
     button.disabled = false;
     button.textContent = 'Send Message →';
   }
-}
+});
+
+});

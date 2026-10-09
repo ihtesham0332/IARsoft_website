@@ -5,15 +5,56 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Technology Stack - IARsoft</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+<noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/></noscript>
+<link rel="icon" type="image/x-icon" href="favicon.ico"/>
+<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<meta name="description" content="Discover the technology stack behind IARsoft apps: Flutter, Dart, Python, Firebase, TensorFlow Lite, and cloud-native architecture."/>
+<meta property="og:title" content="Technology Stack - IARsoft"/>
+<meta property="og:description" content="Discover the technology stack behind IARsoft apps: Flutter, Dart, Python, Firebase, TensorFlow Lite, and more."/>
+<meta property="og:image" content="https://www.iarsoft.com/apple-touch-icon.png"/>
+<meta property="og:url" content="https://www.iarsoft.com/tech.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="en_US"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Technology Stack - IARsoft"/>
+<meta name="twitter:description" content="Discover the tech stack behind IARsoft apps — Flutter, Python, Firebase, and cloud-native architecture."/>
+<meta name="twitter:image" content="https://www.iarsoft.com/apple-touch-icon.png"/>
+<link rel="canonical" href="https://www.iarsoft.com/tech.html"/>
+<link rel="alternate" hreflang="en" href="https://www.iarsoft.com/tech.html"/>
+<link rel="alternate" hreflang="en-PK" href="https://www.iarsoft.com/tech.html"/>
 <link rel="stylesheet" href="styles.css"/>
+<script type="application/ld+json">
+[{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "IARsoft",
+  "url": "https://www.iarsoft.com",
+  "logo": "https://www.iarsoft.com/apple-touch-icon.png",
+  "description": "Pakistani startup building privacy-first mobile apps",
+  "foundingDate": "2025",
+  "founders": [
+    {"@type": "Person", "name": "Muhammad Ihtesham Khan"},
+    {"@type": "Person", "name": "Rashid Khan"},
+    {"@type": "Person", "name": "Arif Khan"}
+  ],
+  "address": {"@type": "PostalAddress", "addressCountry": "PK"}
+},
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "IARsoft",
+  "url": "https://www.iarsoft.com"
+}]
+</script>
 </head>
 <body>
 
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
-<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&uarr;</button>
+<button class="back-top" id="backTop" aria-label="Scroll to top">&uarr;</button>
 
 <nav id="navbar">
   <div class="nav-logo">
@@ -27,18 +68,18 @@
     <li><a href="team.html">Team</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html" onclick="closeMenu()">Home</a>
-  <a href="about.html" onclick="closeMenu()">About</a>
-  <a href="apps.html" onclick="closeMenu()">Google Play Store</a>
-  <a href="tech.html" onclick="closeMenu()">Tech</a>
-  <a href="team.html" onclick="closeMenu()">Team</a>
-  <a href="contact.html" onclick="closeMenu()">Contact</a>
-  <a href="privacy-policy.html" onclick="closeMenu()">Privacy Policy</a>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="apps.html">Google Play Store</a>
+  <a href="tech.html">Tech</a>
+  <a href="team.html">Team</a>
+  <a href="contact.html">Contact</a>
+  <a href="privacy-policy.html">Privacy Policy</a>
 </div>
 
 <section id="tech" style="min-height:100vh;padding-top:120px;">
@@ -46,68 +87,108 @@
   <div class="tech-decor tech-decor-2"></div>
   <div class="tech-decor tech-decor-3"></div>
   <div class="section-label reveal">Technology Stack</div>
-  <h2 class="section-title reveal reveal-delay-1">Advanced technologies powering every product.</h2>
-  <p class="section-sub reveal reveal-delay-2">A refined technology ecosystem designed for agile product delivery, native experiences, AI augmentation, and scalable backend architecture.</p>
-  <div class="tech-stack">
-    <div class="tech-item reveal reveal-delay-1">
-      <div class="tech-item-icon">&#x1F3AF;</div>
-      <div class="tech-item-name">Flutter</div>
-      <div class="tech-item-sub">Cross-platform mobile UI</div>
+  <h2 class="section-title reveal reveal-delay-1">Built with modern tech,<br>for every platform.</h2>
+  <p class="section-sub reveal reveal-delay-2">From cross-platform mobile to AI-powered backends — we choose tools that scale with purpose.</p>
+
+  <div class="tech-category reveal">
+    <div class="tech-category-header">
+      <span class="tech-category-line"></span>
+      <span class="tech-category-title">Mobile Development</span>
     </div>
-    <div class="tech-item reveal reveal-delay-2">
-      <div class="tech-item-icon">&#x1F40D;</div>
-      <div class="tech-item-name">Python</div>
-      <div class="tech-item-sub">Backend &amp; automation</div>
+    <div class="tech-stack">
+      <div class="tech-item tech-featured reveal reveal-delay-1">
+        <div class="tech-icon tech-icon-blue"><span>F</span></div>
+        <div class="tech-item-name">Flutter &amp; Dart</div>
+        <div class="tech-item-sub">Cross-platform native apps for Android &amp; iOS from a single codebase with hot reload and beautiful UI.</div>
+        <div class="tech-tags">
+          <span class="tech-tag">Android</span>
+          <span class="tech-tag">iOS</span>
+          <span class="tech-tag">Web</span>
+        </div>
+      </div>
+      <div class="tech-item tech-featured reveal reveal-delay-2">
+        <div class="tech-icon tech-icon-orange"><span>S</span></div>
+        <div class="tech-item-name">Swift &amp; SwiftUI</div>
+        <div class="tech-item-sub">Native iOS development with modern SwiftUI framework for Apple platforms including iPadOS and macOS.</div>
+        <div class="tech-tags">
+          <span class="tech-tag">iOS</span>
+          <span class="tech-tag">iPadOS</span>
+          <span class="tech-tag">macOS</span>
+        </div>
+      </div>
+      <div class="tech-item reveal reveal-delay-3">
+        <div class="tech-icon tech-icon-green"><span>A</span></div>
+        <div class="tech-item-name">Android (Kotlin)</div>
+        <div class="tech-item-sub">Native Android app development with Kotlin and Jetpack Compose.</div>
+      </div>
     </div>
-    <div class="tech-item reveal reveal-delay-3">
-      <div class="tech-item-icon">&#x26A1;</div>
-      <div class="tech-item-name">Firebase</div>
-      <div class="tech-item-sub">Realtime data &amp; auth</div>
+  </div>
+
+  <div class="tech-category reveal reveal-delay-1">
+    <div class="tech-category-header">
+      <span class="tech-category-line"></span>
+      <span class="tech-category-title">AI &amp; Backend</span>
     </div>
-    <div class="tech-item reveal reveal-delay-1">
-      <div class="tech-item-icon">&#x1F916;</div>
-      <div class="tech-item-name">AI Technology</div>
-      <div class="tech-item-sub">Intelligent features &amp; automation</div>
+    <div class="tech-stack">
+      <div class="tech-item reveal reveal-delay-1">
+        <div class="tech-icon tech-icon-yellow"><span>Py</span></div>
+        <div class="tech-item-name">Python</div>
+        <div class="tech-item-sub">Backend logic, automation scripts, and data processing pipelines.</div>
+      </div>
+      <div class="tech-item tech-featured reveal reveal-delay-2">
+        <div class="tech-icon tech-icon-purple"><span>AI</span></div>
+        <div class="tech-item-name">AI &amp; Machine Learning</div>
+        <div class="tech-item-sub">On-device ML with TensorFlow Lite, real-time predictions, and intelligent app features.</div>
+        <div class="tech-tags">
+          <span class="tech-tag">TensorFlow</span>
+          <span class="tech-tag">ML Kit</span>
+          <span class="tech-tag">Gemini</span>
+        </div>
+      </div>
+      <div class="tech-item reveal reveal-delay-3">
+        <div class="tech-icon tech-icon-amber"><span>Fb</span></div>
+        <div class="tech-item-name">Firebase</div>
+        <div class="tech-item-sub">Realtime data sync, authentication, cloud functions, and push notifications.</div>
+      </div>
+      <div class="tech-item reveal reveal-delay-1">
+        <div class="tech-icon tech-icon-teal"><span>Sb</span></div>
+        <div class="tech-item-name">Supabase</div>
+        <div class="tech-item-sub">Open source backend with PostgreSQL, realtime subscriptions, and storage.</div>
+      </div>
+      <div class="tech-item reveal reveal-delay-2">
+        <div class="tech-icon tech-icon-blue"><span>API</span></div>
+        <div class="tech-item-name">REST API</div>
+        <div class="tech-item-sub">Scalable API architecture for seamless frontend-backend integration.</div>
+      </div>
     </div>
-    <div class="tech-item reveal reveal-delay-2">
-      <div class="tech-item-icon">&#x2601;&#xFE0F;</div>
-      <div class="tech-item-name">Supabase</div>
-      <div class="tech-item-sub">Open source backend</div>
+  </div>
+
+  <div class="tech-category reveal reveal-delay-2">
+    <div class="tech-category-header">
+      <span class="tech-category-line"></span>
+      <span class="tech-category-title">Design &amp; DevOps</span>
     </div>
-    <div class="tech-item reveal reveal-delay-3">
-      <div class="tech-item-icon">&#x1F3A8;</div>
-      <div class="tech-item-name">Figma</div>
-      <div class="tech-item-sub">Design &amp; prototyping</div>
-    </div>
-    <div class="tech-item reveal reveal-delay-1">
-      <div class="tech-item-icon">&#x1F9EA;</div>
-      <div class="tech-item-name">Git</div>
-      <div class="tech-item-sub">Version control</div>
-    </div>
-    <div class="tech-item reveal reveal-delay-2">
-      <div class="tech-item-icon">&#x1F4BE;</div>
-      <div class="tech-item-name">MongoDB</div>
-      <div class="tech-item-sub">Flexible data storage</div>
-    </div>
-    <div class="tech-item reveal reveal-delay-3">
-      <div class="tech-item-icon">&#x270D;&#xFE0F;</div>
-      <div class="tech-item-name">Illustrator</div>
-      <div class="tech-item-sub">Visual asset creation</div>
-    </div>
-    <div class="tech-item reveal reveal-delay-1">
-      <div class="tech-item-icon">&#x2601;&#xFE0F;</div>
-      <div class="tech-item-name">REST API</div>
-      <div class="tech-item-sub">Scalable backend integration</div>
-    </div>
-    <div class="tech-item reveal reveal-delay-2">
-      <div class="tech-item-icon">&#x1F9E9;</div>
-      <div class="tech-item-name">CI/CD</div>
-      <div class="tech-item-sub">Automated delivery pipelines</div>
-    </div>
-    <div class="tech-item reveal reveal-delay-3">
-      <div class="tech-item-icon">&#x1F3AF;</div>
-      <div class="tech-item-name">UX Design</div>
-      <div class="tech-item-sub">User-first interface strategy</div>
+    <div class="tech-stack">
+      <div class="tech-item reveal reveal-delay-1">
+        <div class="tech-icon tech-icon-pink"><span>F</span></div>
+        <div class="tech-item-name">Figma</div>
+        <div class="tech-item-sub">Collaborative interface design, prototyping, and design systems.</div>
+      </div>
+      <div class="tech-item reveal reveal-delay-2">
+        <div class="tech-icon tech-icon-red"><span>G</span></div>
+        <div class="tech-item-name">Git</div>
+        <div class="tech-item-sub">Version control with branching, code review, and collaboration workflows.</div>
+      </div>
+      <div class="tech-item reveal reveal-delay-3">
+        <div class="tech-icon tech-icon-indigo"><span>CI</span></div>
+        <div class="tech-item-name">CI/CD</div>
+        <div class="tech-item-sub">Automated build, test, and deployment pipelines for reliable releases.</div>
+      </div>
+      <div class="tech-item reveal reveal-delay-1">
+        <div class="tech-icon tech-icon-purple"><span>U</span></div>
+        <div class="tech-item-name">UX Design</div>
+        <div class="tech-item-sub">User research, wireframing, and usability testing for intuitive experiences.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -124,10 +205,10 @@
     <div>
       <div class="footer-col-title">Our Apps</div>
       <div class="footer-col-links">
-        <a href="https://play.google.com/store/apps/details?id=com.iarsoft.muslim_pk" target="_blank">Muslim PK</a>
-        <a href="https://play.google.com/store/apps/details?id=com.iarsoft.zikr_pro" target="_blank">Zikr Pro</a>
-        <a href="https://play.google.com/store/apps/details?id=iarsoft.example.scannora" target="_blank">QR Scannora</a>
-        <a href="https://play.google.com/store/apps/details?id=com.iarsoft.fruit_lens" target="_blank">Fruit Lens</a>
+        <a href="https://play.google.com/store/apps/details?id=com.iarsoft.muslim_pk" target="_blank" rel="nofollow sponsored">Muslim PK</a>
+        <a href="https://play.google.com/store/apps/details?id=com.iarsoft.zikr_pro" target="_blank" rel="nofollow sponsored">Zikr Pro</a>
+        <a href="https://play.google.com/store/apps/details?id=iarsoft.example.scannora" target="_blank" rel="nofollow sponsored">QR Scannora</a>
+        <a href="https://play.google.com/store/apps/details?id=com.iarsoft.fruit_lens" target="_blank" rel="nofollow sponsored">Fruit Lens</a>
       </div>
     </div>
     <div>
@@ -145,13 +226,13 @@
   <div class="footer-bottom">
     <div class="footer-copy">&copy; 2026 IARsoft. All rights reserved. Built with &hearts; in Pakistan.</div>
     <div class="footer-social">
-      <a class="social-btn" href="mailto:iarsoftofficial@gmail.com" title="Email">&#x2709;</a>
-      <a class="social-btn" href="https://play.google.com/store/apps/developer?id=IARSOFT+Official" target="_blank" title="Play Store">&#9654;</a>
-      <a class="social-btn" href="tel:+923310095555" title="WhatsApp">&#x1F4F1;</a>
+      <a class="social-btn" href="mailto:iarsoftofficial@gmail.com" title="Email" aria-label="Email">&#x2709;</a>
+      <a class="social-btn" href="https://play.google.com/store/apps/developer?id=IARSOFT+Official" target="_blank" rel="nofollow sponsored" title="Play Store" aria-label="Play Store">&#9654;</a>
+      <a class="social-btn" href="tel:+923310095555" title="WhatsApp" aria-label="WhatsApp">&#x1F4F1;</a>
     </div>
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script type="module" src="script.js"></script>
 </body>
 </html>
